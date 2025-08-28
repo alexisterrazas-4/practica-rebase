@@ -1,7 +1,33 @@
 Formulario de contacto
 <!-- typo corregido -->
 <script>validarFormulario()</script>
-<style>form { margin: 20px; }</style>
+<style>
+  form {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 300px;
+  }
+  input {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+</style>
 <script>
   console.log('debug')
 </script>
+<script>
+  function validarFormulario() {
+    const nombre = document.getElementById("nombre").value;
+    if (nombre.trim() === "") {
+      alert("Por favor ingresa tu nombre.");
+      return false;
+    }
+    return true;
+  }
+</script>
+<form onsubmit="return validarFormulario()">
+  <input type="text" id="nombre" placeholder="Nombre">
+  <input type="submit" value="Enviar">
+</form>
